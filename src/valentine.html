@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question 💝</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .glass-effect {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(147, 51, 234, 0.15));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .heart-bg {
+            background: radial-gradient(circle at center, rgba(236, 72, 153, 0.2), transparent 70%);
+        }
+    </style>
+</head>
+<body class="m-0 overflow-hidden font-cormorant bg-gradient-to-br from-purple-950 via-purple-900 to-purple-950 text-white min-h-screen">
+    <!-- Ambient background elements -->
+    <div class="fixed inset-0 opacity-40">
+        <div class="absolute w-[40rem] h-[40rem] rounded-full bg-purple-600/20 blur-3xl -top-20 -left-20 animate-pulse"></div>
+        <div class="absolute w-[30rem] h-[30rem] rounded-full bg-violet-500/20 blur-3xl bottom-0 right-0 animate-pulse"></div>
+    </div>
+
+    <!-- Main content -->
+    <div class="relative min-h-screen flex flex-col items-center justify-center z-10 px-4 -translate-y-8">
+        <!-- Valentine Card -->
+        <div class="glass-effect rounded-3xl p-8 max-w-md mx-auto text-center space-y-8 
+                    hover:shadow-[0_0_50px_rgba(236,72,153,0.2)] transition-all duration-500
+                    border border-white/5 floating">
+            <div class="heart-bg w-full h-full absolute inset-0 opacity-50 rounded-3xl"></div>
+            
+            <div class="space-y-2">
+                <h2 class="font-dancing text-3xl md:text-4xl relative bg-clip-text text-transparent 
+                          bg-gradient-to-r from-pink-300 to-purple-300">
+                    Meri Pyaari Jaan
+                </h2>
+                <div class="h-[1px] w-32 mx-auto bg-gradient-to-r from-transparent via-pink-300/30 to-transparent"></div>
+            </div>
+
+            <div class="space-y-6 relative">
+                <p class="font-dancing text-xl md:text-2xl leading-relaxed">
+                    Every moment with you feels like magic,<br>
+                    and my heart dances to the rhythm of your smile.<br>
+                    You make my world beautiful and complete.
+                </p>
+
+                <div class="pulse">
+                    <h3 class="font-dancing text-2xl md:text-3xl bg-clip-text text-transparent 
+                             bg-gradient-to-r from-pink-300 to-purple-300 font-bold">
+                        Will You Be My Valentine? 💝
+                    </h3>
+                </div>
+
+                <div class="flex justify-center gap-4 pt-4">
+                    <button class="px-8 py-3 rounded-full border-2 border-pink-400/30 hover:border-pink-300 
+                             transition-all duration-300 hover:text-pink-300 glass-effect
+                             hover:shadow-lg hover:shadow-pink-500/20 transform hover:scale-105">
+                        Yes 💖
+                    </button>
+                    <button class="px-8 py-3 rounded-full border-2 border-pink-400/30 hover:border-pink-300 
+                             transition-all duration-300 hover:text-pink-300 glass-effect
+                             hover:shadow-lg hover:shadow-pink-500/20 transform hover:scale-105">
+                        Of Course 💝
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back button -->
+        <a href="poem.html" class="mt-8 inline-flex items-center justify-center px-4 py-2 rounded-full border-2 
+                 border-pink-400/30 hover:border-pink-300 transition-all duration-300 text-white/90 
+                 hover:text-pink-300 hover:shadow-lg hover:shadow-pink-500/20 glass-effect group 
+                 bg-gradient-to-r from-pink-500/10 to-purple-500/10 transform hover:scale-105 
+                 text-base w-[120px] h-[38px]">
+            <span class="tracking-wide font-medium">Back</span>
+        </a>
+    </div>
+
+    <script>
+        // Fun response to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Create initial heart burst
+                createHeartBurst();
+                // Start continuous heart rain
+                startHeartRain();
+
+                // Show success message after a delay
+                setTimeout(() => {
+                    alert('You just made me the happiest person! 💖');
+                }, 800);
+            });
+        });
+
+        function createHeartBurst() {
+            // Initial burst of hearts
+            for(let i = 0; i < 30; i++) {
+                createHeart('burst');
+            }
+        }
+
+        function startHeartRain() {
+            // Create continuous rain for 5 seconds
+            let rainDuration = 5000; // 5 seconds
+            let rainInterval = setInterval(() => {
+                createHeart('rain');
+            }, 100);
+
+            setTimeout(() => {
+                clearInterval(rainInterval);
+            }, rainDuration);
+        }
+
+        function createHeart(type) {
+            const heart = document.createElement('div');
+            const hearts = ['💖', '💝', '💗', '💓', '💕'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.className = 'fixed text-2xl pointer-events-none';
+            
+            if (type === 'burst') {
+                // Burst animation from center
+                heart.style.left = '50%';
+                heart.style.top = '50%';
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 5 + Math.random() * 10;
+                const distance = 100 + Math.random() * 200;
+
+                const animation = heart.animate([
+                    { 
+                        transform: 'translate(-50%, -50%) scale(0.5)',
+                        opacity: 1 
+                    },
+                    { 
+                        transform: `translate(
+                            calc(-50% + ${Math.cos(angle) * distance}px), 
+                            calc(-50% + ${Math.sin(angle) * distance}px)
+                        ) scale(1.5)`,
+                        opacity: 0 
+                    }
+                ], {
+                    duration: 1000 + Math.random() * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+
+                animation.onfinish = () => heart.remove();
+            } else {
+                // Rain animation
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.top = '-20px';
+                heart.style.opacity = '0.8';
+                heart.style.transform = `scale(${0.5 + Math.random() * 0.5})`;
+
+                const animation = heart.animate([
+                    { transform: `translateY(0) rotate(0deg) scale(${0.5 + Math.random() * 0.5})` },
+                    { transform: `translateY(${window.innerHeight + 20}px) rotate(${360 * Math.random()}deg) scale(${0.5 + Math.random() * 0.5})` }
+                ], {
+                    duration: 2000 + Math.random() * 3000,
+                    easing: 'cubic-bezier(0.37, 0, 0.63, 1)'
+                });
+
+                animation.onfinish = () => heart.remove();
+            }
+
+            document.body.appendChild(heart);
+        }
+    </script>
+</body>
+</html> 

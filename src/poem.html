@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Poem for Khushiii 💝</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .font-cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .glass-effect {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(147, 51, 234, 0.15));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.37),
+                inset 0 0 80px rgba(236, 72, 153, 0.1);
+        }
+
+        .poem-line {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-hearts {
+            position: absolute;
+            pointer-events: none;
+            animation: floatUpAndFade 4s ease-in-out infinite;
+        }
+
+        @keyframes floatUpAndFade {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 45%,
+                rgba(255, 255, 255, 0.1) 48%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.1) 52%,
+                transparent 55%
+            );
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translate(-30%, -30%) rotate(0deg);
+            }
+            100% {
+                transform: translate(30%, 30%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="m-0 overflow-hidden font-cormorant bg-gradient-to-br from-purple-950 via-purple-900 to-purple-950 text-white min-h-screen">
+    <!-- Ambient background elements -->
+    <div class="fixed inset-0 opacity-40">
+        <div class="absolute w-[40rem] h-[40rem] rounded-full bg-purple-600/20 blur-3xl -top-20 -left-20 animate-pulse"></div>
+        <div class="absolute w-[30rem] h-[30rem] rounded-full bg-violet-500/20 blur-3xl bottom-0 right-0 animate-pulse"></div>
+    </div>
+
+    <!-- Main content -->
+    <div class="relative min-h-screen flex flex-col items-center justify-center z-10 px-4 -translate-y-8">
+        <div class="glass-effect rounded-3xl p-5 pt-5 pb-3 md:p-6 md:pt-6 md:pb-4 max-w-md mx-auto text-center space-y-3
+                    hover:shadow-[0_0_50px_rgba(236,72,153,0.2)] transition-shadow duration-500
+                    border border-white/5">
+            
+            <!-- Title -->
+            <div class="space-y-2">
+                <h1 class="text-2xl md:text-3xl font-dancing shine-effect bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-purple-300">
+                    For My Beloved Khushiii
+                </h1>
+                <div class="h-[1px] w-28 mx-auto bg-gradient-to-r from-transparent via-pink-300/30 to-transparent"></div>
+            </div>
+
+            <!-- Poem container -->
+            <div class="space-y-2 font-dancing text-lg md:text-xl text-white/90 leading-relaxed max-w-sm mx-auto py-1" id="poem-container">
+                <!-- Poem lines will be added here by JavaScript -->
+            </div>
+
+            <!-- Navigation buttons container -->
+            <div class="flex items-center justify-center gap-3">
+                <!-- Back button -->
+                <a href="index.html" class="inline-flex items-center justify-center px-4 py-2 rounded-full border-2 
+                         border-pink-400/30 hover:border-pink-300 transition-all duration-300 text-white/90 
+                         hover:text-pink-300 hover:shadow-lg hover:shadow-pink-500/20 glass-effect group 
+                         bg-gradient-to-r from-pink-500/10 to-purple-500/10 transform hover:scale-105 
+                         text-base w-[120px] h-[38px]">
+                    <span class="tracking-wide font-medium">Back</span>
+                </a>
+
+                <!-- Question button -->
+                <a href="valentine.html" class="inline-flex items-center justify-center px-4 py-2 rounded-full border-2 
+                         border-pink-400/30 hover:border-pink-300 transition-all duration-300 text-white/90 
+                         hover:text-pink-300 hover:shadow-lg hover:shadow-pink-500/20 glass-effect group 
+                         bg-gradient-to-r from-pink-500/10 to-purple-500/10 transform hover:scale-105 
+                         text-base w-[120px] h-[38px]">
+                    <span class="tracking-wide font-medium">Question</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const poemLines = [
+            "In the garden of my heart, a flower blooms,",
+            "Your love, like sunshine, fills all the rooms.",
+            "Every thought of you brings a smile so bright,",
+            "Making my world sparkle with pure delight.",
+            "",
+            "Your eyes hold galaxies of endless dreams,",
+            "Your smile outshines the brightest moonbeams.",
+            "With you, my Khushiii, life's pure and sweet,",
+            "Every moment with you makes my heart skip a beat.",
+            "",
+            "Like stars that dance in the midnight sky,",
+            "Our love story makes my spirit fly.",
+            "Forever yours, in this magical dance,",
+            "Blessed by destiny, by sweet romance."
+        ];
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💜';
+            heart.className = 'absolute text-xl transition-all duration-1000 ease-out opacity-0';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.top = '100%';
+            
+            document.body.appendChild(heart);
+
+            requestAnimationFrame(() => {
+                heart.style.transform = `translateY(-120vh) translateX(${Math.random() * 100 - 50}px)`;
+                heart.style.opacity = '0.5';
+                heart.style.transition = `all ${Math.random() * 3 + 2}s ease-out`;
+            });
+
+            setTimeout(() => heart.remove(), 4000);
+        }
+
+        // Add poem lines with animation delay
+        const poemContainer = document.getElementById('poem-container');
+        poemLines.forEach((line, index) => {
+            const p = document.createElement('p');
+            p.textContent = line;
+            p.className = 'poem-line';
+            p.style.animationDelay = `${index * 0.3}s`;
+            if (line === "") {
+                p.className = 'h-4'; // Add spacing for empty lines
+            }
+            poemContainer.appendChild(p);
+        });
+
+        // Create floating hearts periodically
+        setInterval(createFloatingHeart, 2000);
+    </script>
+</body>
+</html> 
